@@ -1,0 +1,65 @@
+.ml-24 {
+  margin-left: 24px;
+  margin-top: 30px;
+}
+.fs-5 {
+  background: #000000;
+  border-radius: 50px;
+  color: #ffff;
+}
+.bg-white button {
+  max-width: 244px;
+  width: 100%;
+}
+.gName input {
+  box-sizing: border-box;
+  width: 320px;
+  height: 35px;
+  background: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 22px;
+  padding: 15px;
+}
+
+.modal-header {
+  border: none !important;
+}
+
+.modal-footer {
+  border: none !important;
+}
+.colours .custom-colours {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  margin-left: 7px;
+}
+.purple {
+  background-color: #b38bfa;
+}
+.pink {
+  background-color: #ff79f2;
+}
+.aqua {
+  background-color: #43e6fc;
+}
+.orange {
+  background-color: #f19576;
+}
+.blue {
+  background-color: #0047ff;
+}
+.lblue {
+  background-color: #6691ff;
+}
+
+.modale .circle{
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: #0047ff;
+  color: #ffff;
+}
+.modale .circle.custom-p{
+  padding:12px ;
+}

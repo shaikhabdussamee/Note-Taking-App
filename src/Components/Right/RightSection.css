@@ -1,0 +1,18 @@
+.bg-custom {
+  background-color: #f7ecdc;
+  height: 100vh;
+}
+.mt-img-custom {
+  width: 500px;
+  height: 250px;
+}
+.encry{
+    margin-top: 120px;
+}
+
+.custom-img img {
+  max-width: 17px;
+  width: 100%;
+  max-height: 21px;
+  height: 100%;
+}
