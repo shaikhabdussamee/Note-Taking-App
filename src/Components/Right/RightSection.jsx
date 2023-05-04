@@ -15,12 +15,15 @@ function RightSection() {
           <br />
           Use Pocket Notes on up to 4 linked devices and 1 mobile phone
         </p>
-        <div className="d-flex  justify-content-center custom-img encry">
+        <div className="d-flex  justify-content-center custom-img encry pt-2 ms-3">
           <img src={lock} alt="" />
           <p>end-to-end encrypted</p>
-        </div>
+         </div>
       </div>
     </div>
+
+    //Onclick handler
+
   );
 }
 

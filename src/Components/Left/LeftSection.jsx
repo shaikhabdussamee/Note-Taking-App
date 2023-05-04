@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LeftSection.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 function MyVerticallyCenteredModal(props) {
+  const [groupName, setGroupName] = useState("");
+  const [groupList, setGroupList] = useState([]);
+
+  function createGroup() {
+    // console.log("Creating group");
+    let char = groupName.slice(0,2);
+    console.log (char);
+    let data = {
+      name: groupName,
+      Symbol: char,
+    };
+    setGroupList([...groupList, data]);
+  }
   return (
     <>
       <Modal
@@ -21,7 +34,12 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Body>
           <div className="d-flex justify-content-between gName">
             <h5>Group Name</h5>
-            <input type="text" placeholder="Enter your group name...." />
+            <input
+              type="text"
+              placeholder="Enter your group name...."
+              value={groupName}
+              onChange={(e) => setGroupName(e.target.value)}
+            />
           </div>
           <div className="d-flex justify-content-between mt-3">
             <h5>Choose Colour</h5>
@@ -37,18 +55,33 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button onClick={props.onHide} className="bg-black px-5">
+          <Button
+            onClick={() => {
+              createGroup();
+              props.onHide();
+            }}
+            className="bg-black px-5"
+          >
             Create
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <div className="d-flex modale mt-5 ms-4 bg-warning">
+      {groupList.map((el,i) => (
+        <div key={i} className="d-flex modale mt-5 ms-4 ">
+          <div className="circle fw-bold custom-p">
+            <span className="mt-3">{el.Symbol}</span>
+          </div>
+          <p className="fs-4 fw-bold mt-1 ms-2">{el.name}</p>
+        </div>
+      ))}
+
+      {/* <div className="d-flex modale mt-5 ms-4 ">
         <div className="circle fw-bold custom-p">
           <span className="mt-3">SA</span>
         </div>
         <p className="fs-4 fw-bold mt-1 ms-2">Samee Notes</p>
-      </div>
+      </div> */}
     </>
   );
 }
