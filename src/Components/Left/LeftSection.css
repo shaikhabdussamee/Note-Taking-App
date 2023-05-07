@@ -63,3 +63,6 @@
 .modale .circle.custom-p{
   padding:12px ;
 }
+.custom-p{
+  cursor: pointer;
+}

@@ -2,20 +2,42 @@ import React, { useState } from "react";
 import "./LeftSection.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useContext } from "react";
+import { CreateContext } from "../../App";
 
 function MyVerticallyCenteredModal(props) {
   const [groupName, setGroupName] = useState("");
   const [groupList, setGroupList] = useState([]);
+  const { ishide, setIsHide } = useContext(CreateContext);
+
+  const handleClick = () => {
+    setIsHide(true);
+  };
 
   function createGroup() {
     // console.log("Creating group");
-    let char = groupName.slice(0,2);
-    console.log (char);
+    let char = groupName.slice(0, 2);
+    console.log(char);
     let data = {
       name: groupName,
       Symbol: char,
     };
     setGroupList([...groupList, data]);
+
+    let item = {
+      name: groupName,
+      content: [
+        {
+          date: "",
+          actualContent: "",
+        },
+      ],
+    };
+
+    let noteData = JSON.parse(localStorage.getItem("note-data"));
+    noteData.push(item);
+    localStorage.setItem("note-data", JSON.stringify([]));
+
   }
   return (
     <>
@@ -67,9 +89,9 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Footer>
       </Modal>
 
-      {groupList.map((el,i) => (
+      {groupList.map((el, i) => (
         <div key={i} className="d-flex modale mt-5 ms-4 ">
-          <div className="circle fw-bold custom-p">
+          <div onClick={handleClick} className="circle fw-bold custom-p">
             <span className="mt-3">{el.Symbol}</span>
           </div>
           <p className="fs-4 fw-bold mt-1 ms-2">{el.name}</p>
